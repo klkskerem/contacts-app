@@ -2,16 +2,17 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp")
 }
 
 android {
-    namespace = "com.example.contactsapp"
+    namespace = "com.example.jetcontactsapp"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.contactsapp"
+        applicationId = "com.example.jetcontactsapp"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -57,4 +58,13 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.compose.runtime.livedata)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    ksp(libs.androidx.room.compiler)
 }
